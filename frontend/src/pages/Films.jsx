@@ -3,6 +3,7 @@ import React from 'react'
 import { useState, useEffect } from "react"
 // import { useSearchParams } from "next/navigation"
 import MovieCard from "../components/MovieCard"
+import MovieGraph from "../components/MovieGraph"; // <-- Import at the top
 import { Sliders, ChevronDown, X } from "lucide-react"
 
 export default function FilmsPage() {
@@ -525,6 +526,10 @@ const genres = [
             </div>
           )}
         </div>
+      </div>
+      {/* Place MovieGraph at the bottom */}
+      <div className="mt-12">
+        <MovieGraph />
       </div>
     </div>
   )
