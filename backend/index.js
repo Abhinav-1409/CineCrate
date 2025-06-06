@@ -44,6 +44,15 @@ LIMIT 100;
   res.send(movies);
 });
 
+app.get("/enum", async (req, res) => {
+  const result = await sql`SELECT enumlabel
+FROM pg_enum
+JOIN pg_type ON pg_enum.enumtypid = pg_type.oid
+WHERE pg_type.typname = 'gender_enum';
+`;
+  res.send(result);
+});
+
 app.listen(PORT, () => {
   console.log("Server Running Successfully " + PORT + "!!");
 });
